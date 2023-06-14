@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<style>
+
+.button11 {
+  background: #2e7d32;
+  border-radius: 100px;
+  padding: 20px 60px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.45em;
+  margin: 0 15px;
+}
+
+/* Hover state animation applied here */
+.button11:hover { 
+  -webkit-animation: hover 1200ms linear 2 alternate;
+  animation: hover 1200ms linear 2 alternate;
+}
+
+/* Active state animation applied here */
+.button11:active {
+  -webkit-animation: active 1200ms ease 1 alternate;
+  animation: active 1200ms ease 1 alternate; 
+  background: #1b5e20;
+}
+
+</style>
+
+<!-----------------------Import Icon Font ----------------------------->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+
+<!-- Nav -->
+
+<body>
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="{{url_for('home')}}"><b>Inicio</b></a></li>
+            <li><a href="{{url_for('motivo')}}"><b>motivo</b></a></li>
+            <li><a href="{{url_for('usuario')}}"><b>Usuarios</a></b></li>
+            <li><a href="{{url_for('tablero')}}"><b>tablero</a></b></li>
+            <li><a href="{{url_for('mesa')}}"><b>mesa</a></b></li>
+            <li><a href="{{url_for('iluminacion')}}"><b>iluminacion</a></b></li>
+            <li><a href="{{url_for('salones')}}"><b>salones</a></b></li>
+            <li><a href="{{url_for('reservas')}}"><b>reservas</a></b></li>
+            <li><a href="{{url_for('ocupacion')}}"><b>Ocupacion</a></b></li>
+          </ul>
+        </div>
+      </nav>
+
+    <div class="container">
+        <div class="row row-col-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2">
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-center">Tabla Usuarios</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/Usuarios" method="POST">
+                            <label>idUsuarios</label>
+                            <input type="text" class="form-control mb-3" name="idUsuarios">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control mb-3" name="Nombre">
+                            
+                            <label>Apellido</label>
+                            <input type="text" class="form-control mb-3" name="Apellido">
+                            <label>Celular</label>
+                            <input type="text" class="form-control mb-3" name="Celular">
+                            <label>Correo</label>
+                            <input type="text" class="form-control mb-3" name="Correo">
+                            <label>Ocupacion</label>
+                            <input type="text" class="form-control mb-3" name="Ocupacion_idOcupacion">
+                            <label>Fecha nacimiento</label>
+                            <input type="text" class="form-control mb-3" name="Fecha_nacimiento">
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-center">Usuarios</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <div class="row row-col-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3">
+                                {% for usuario in Usuarioss %}
+
+                                    <div class="col">
+                                        <li class="list-group-item mb-3">
+                                            <form action="/edituser/{{usuario.idUsuarios}}" method="POST">
+                                                <small><strong>idUsuario</strong></small>
+                                                <input type="text" class="form-control" value="{{usuario.idUsuarios}}" name="idUsuarios">
+
+                                                <small><strong>Nombre</strong></small>
+                                                <input type="text" class="form-control" value="{{usuario.Nombre}}" name="Nombre">
+
+                                                <small><strong>Apellido</strong></small>
+                                                <input type="text" class="form-control" value="{{usuario.Apellido}}" name="Apellido">
+
+                                                <small><strong>Celular</strong></small>
+                                                <input type="text" class="form-control" value="{{usuario.Celular}}" name="Celular">
+
+                                                <small><strong>Correo</strong></small>
+                                                <input type="text" class="form-control" value="{{usuario.Correo}}" name="Correo">
+
+                                                <small><strong>Ocupacion</strong></small>
+                                                <input type="text" class="form-control" value="{{usuario.Ocupacion_idOcupacion}}" name="Ocupacion_idOcupacion">
+
+                                                <small><strong>Fecha nacimiento</strong></small>
+                                                <input type="text" class="form-control" value="{{usuario.Fecha_nacimiento}}" name="Fecha_nacimiento">
+                                                
+                                                <button class="btn btn-primary btn-sm mt-3" type="submit">Editar</button>
+                                                <a href="{{url_for('deleteuser', Usuarios_idUsuarios=usuario.idUsuarios)}}" class="btn btn-danger btn-sm mt-3">Eliminar</a>
+
+                                            </form>
+                                        </li>
+                                    </div>
+
+                                {% endfor %}
+                            </div>
+                        </ul>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

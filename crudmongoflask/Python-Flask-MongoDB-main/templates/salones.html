@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<style>
+
+.button11 {
+  background: #2e7d32;
+  border-radius: 100px;
+  padding: 20px 60px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.45em;
+  margin: 0 15px;
+}
+
+/* Hover state animation applied here */
+.button11:hover { 
+  -webkit-animation: hover 1200ms linear 2 alternate;
+  animation: hover 1200ms linear 2 alternate;
+}
+
+/* Active state animation applied here */
+.button11:active {
+  -webkit-animation: active 1200ms ease 1 alternate;
+  animation: active 1200ms ease 1 alternate; 
+  background: #1b5e20;
+}
+
+</style>
+
+<!-----------------------Import Icon Font ----------------------------->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<!-- Nav -->
+<nav>
+    <div class="nav-wrapper grey darken-4">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="{{url_for('home')}}"><b>Inicio</b></a></li>
+        <li><a href="{{url_for('motivo')}}"><b>motivo</b></a></li>
+        <li><a href="{{url_for('usuario')}}"><b>usuario</a></b></li>
+        <li><a href="{{url_for('tablero')}}"><b>tablero</a></b></li>
+        <li><a href="{{url_for('mesa')}}"><b>mesa</a></b></li>
+        <li><a href="{{url_for('iluminacion')}}"><b>iluminacion</a></b></li>
+        <li><a href="{{url_for('salones')}}"><b>salones</a></b></li>
+        <li><a href="{{url_for('reservas')}}"><b>reservas</a></b></li>
+        <li><a href="{{url_for('ocupacion')}}"><b>Ocupacion</a></b></li>
+
+      </ul>
+    </div>
+  </nav>
+
+    <div class="container">
+        <div class="row row-col-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2">
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-center">Tabla Salones</h5>
+                    </div>
+                    <div class="card-body">
+                        <form action="/addSalon" method="POST">
+                            <label>idSalon</label>
+                            <input type="text" class="form-control mb-3" name="idSalones">
+                            <label>numero</label>
+                            <input type="text" class="form-control mb-3" name="numero_salon">
+                            <label>piso</label>
+                            <input type="text" class="form-control mb-3" name="Piso">
+                            <label>capacidad</label>
+                            <input type="text" class="form-control mb-3" name="Capacidad_estudiantes">
+                            <label>idIluminacion</label>
+                            <input type="text" class="form-control mb-3" name="Iluminacion_idIluminacion">
+                            <label>idMesa</label>
+                            <input type="text" class="form-control mb-3" name="Mesas_idMesas">
+                            <label>idTablero</label>
+                            <input type="text" class="form-control mb-3" name="tablero_idtablero">
+                            <label>Tamano</label>
+                            <input type="text" class="form-control mb-3" name="Tamano">
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-center">Salones</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <div class="row row-col-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3">
+                                {% for salon in Salones %}
+
+                                    <div class="col">
+                                        <li class="list-group-item mb-3">
+                                            <form action="/editsalones/{{salon.idSalones}}" method="POST">
+                                                <small><strong>idSalon</strong></small>
+                                                <input type="text" class="form-control" value="{{salon.idSalones}}" name="idSalones">
+
+                                                <small><strong>Numero Salon</strong></small>
+                                                <input type="text" class="form-control" value="{{salon.numero_salon}}" name="numero_salon">
+
+                                                <small><strong>piso</strong></small>
+                                                <input type="text" class="form-control" value="{{salon.Piso}}" name="Piso">
+
+                                                <small><strong>Capacidad Estudiantes</strong></small>
+                                                <input type="text" class="form-control" value="{{salon.Capacidad_estudiantes}}" name="Capacidad_estudiantes">
+
+                                                <small><strong>idIluminacion</strong></small>
+                                                <input type="text" class="form-control" value="{{salon.Iluminacion_idIluminacion}}" name="Iluminacion_idIluminacion">
+
+                                                <small><strong>idMesa</strong></small>
+                                                <input type="text" class="form-control" value="{{salon.Mesas_idMesas}}" name="Mesas_idMesas">
+
+                                                <small><strong>idTablero</strong></small>
+                                                <input type="text" class="form-control" value="{{salon.tablero_idtablero}}" name="tablero_idtablero">
+
+                                                <small><strong>Tamano</strong></small>
+                                                <input type="text" class="form-control" value="{{salon.Tamano}}" name="Tamano">
+
+                                                <button class="btn btn-primary btn-sm mt-3" type="submit">Editar</button>
+                                                <a href="{{url_for('deletesalones', Salones_idSalones=salon.idSalones)}}" class="btn btn-danger btn-sm mt-3">Eliminar</a>
+
+                                            </form>
+                                        </li>
+                                    </div>
+
+                                {% endfor %}
+                            </div>
+                        </ul>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

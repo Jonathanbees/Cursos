@@ -1,0 +1,22 @@
+Crear superusuario para acceder a las funciones de insertar, modificar, eliminar y actualizar usuarios en las tablas:
+
+python manage.py createsuperuser: esto, si las tablas quedaron bien insertadas, pedirá unos campos (nombre, correo y contraseña) con la que se podrá acceder al panel de administración de django por la ruta: localhost:8000/admin, si no deja, el error puede ser porque dice que la tabla auth_user no tiene admite campo: last-login nulo, simplemente hay que cambiarlo para que por defecto sea nulo.
+
+Algunos errores posteriores: 
+	1.no se puede insertar un registro o modificarlo porque la columna "name" está 	vacía:https://stackoverflow.com/questions/55007406/django-migration-error-field-name-doesnt-have-a-	default-value
+
+Opciones varias en el panel de administración:
+1. Configurar algún campo para que no sea requerido su valor en la inserción desde el panel de admin:
+	En el campo de la clase que se requiera, en los paréntesis, hay que poner esto: blank=True, null=True
+2. Configurar algún titulo de un campo para que no sea tal cual el que esté en las tablas:
+	En el campo de la clase que se requiera, en los paréntesis, hay que poner: verbose_name="nombre que quiera"
+3. Configurar campos que se quieren mostrar en las tablas: se creará una clase dentro del archivo admin.py (y previamente habiendo importado las clases del archivo models.py) el cual llamará al modelo correspondiente, y podremos especificar cuales campos queremos agregar con: list_display, ejemplo: class Iluminacionadmin(admin.ModelAdmin):
+    list_display= ("idiluminacion", "color", "origen", "regulacion", "ubicacion")
+
+4.Configurar con cuales campos se harán las búsquedas de registros en el panel de administración entre cada tabla:
+El procedimiento está encadenado con el anterior, pero solo agregaremos: search_fields=(""), y agregaremos los campos con los cuales idenfiticará las búsquedas, ejemplo:
+	class Mesasadmin(admin.ModelAdmin):
+    	list_display= ("idmesas", "color", "tamaño")
+    	search_fields= ("idmesas", "color", "tamaño")
+
+

@@ -1,0 +1,19 @@
+*{
+
+    background-color: rgb(232, 216, 211);
+}
+#titulo{
+    color: aquamarine;
+    text-align: center;
+}
+
+.parrafo{
+    text-align: center;
+    color: chocolate;
+}
+.texto_grande{
+    font-size: large;
+}
+h2, h3{
+    color:darkred;
+}

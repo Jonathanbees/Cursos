@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proyecto</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <style>
+    .slider .indicators .indicator-item {
+      background-color: #d8cfc900;}
+    .slider .indicators .indicator-item.active {
+      background-color: #ddd8d500;
+    }
+
+    .button11 {
+      background: #2e7d32;
+      border-radius: 100px;
+      padding: 20px 60px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.45em;
+      margin: 0 15px;
+    }
+
+    /* Hover state animation applied here */
+    .button11:hover { 
+      -webkit-animation: hover 1200ms linear 2 alternate;
+      animation: hover 1200ms linear 2 alternate;
+    }
+
+    /* Active state animation applied here */
+    .button11:active {
+      -webkit-animation: active 1200ms ease 1 alternate;
+      animation: active 1200ms ease 1 alternate; 
+      background: #1b5e20;
+    }
+
+  </style>
+
+  <!-----------------------Import Icon Font ----------------------------->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
+  
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav>
+        <div class="nav-wrapper grey darken-4">
+          <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="index.html"><b>Inicio</b></a></li>
+            <li><a href="{{url_for('motivo')}}"><b>motivo</b></a></li>
+            <li><a href="{{url_for('usuario')}}"><b>usuario</a></b></li>
+            <li><a href="{{url_for('tablero')}}"><b>tablero</a></b></li>
+            <li><a href="{{url_for('mesa')}}"><b>mesa</a></b></li>
+            <li><a href="{{url_for('iluminacion')}}"><b>iluminacion</a></b></li>
+            <li><a href="{{url_for('salones')}}"><b>salones</a></b></li>
+            <li><a href="{{url_for('reservas')}}"><b>reservas</a></b></li>
+            <li><a href="{{url_for('ocupacion')}}"><b>Ocupacion</a></b></li>
+          </ul>
+        </div>
+      </nav>
+
+
+      <!-- slider -->
+
+      <div class="slider">
+        <ul class="slides">
+          <li>
+              <img src="{{url_for('static', filename='img/Eafit.jpg')}}"><br><br><br>
+              <div class="caption left-align ">
+                <h5 class="light grey-text text-lighten-3" style = "font-family: Papyrus, fantasy; text-shadow: black 0.1em 0.1em 0.2em"><br><br><br>Proyecto final: 
+                  Jonathan Betancur, Alejandro Restrepo, Pablo Baez, Felipe Uribe</h5>
+                
+              </div>
+             
+          </li>
+          <li>
+              <img src="{{url_for('static', filename='img/mongo.png')}}">
+              <div class="caption center-align">
+                <h5 class="light grey-text text-lighten-3" style = "font-family: Papyrus, fantasy; text-shadow: black 0.1em 0.1em 0.2em"><br><br><br> Este es un proyecto simple en el que se hará un crud a la base de datos en MongoDB</h5>
+              </div>
+          </li>
+          <li>
+              <img src="{{url_for('static', filename='img/gracias.jpg')}}"> 
+              <div class="caption right-align">
+                
+                <h5 class="light grey-text text-lighten-3" style = "font-family: Papyrus, fantasy;"><br><br><br></h5>
+              </div>
+          </li>
+        </ul>
+  </div>
+</div>
+<br>
+
+<br>
+
+  <footer class="page-footer grey darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text"><b>Proyecto final Bases de datos</b></h5>
+          <p class="grey-text text-lighten-4">Espero haya sido de su agrado</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text"><b>Contrataciones</b></h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!"><b>Telefono:</b> 3043910313</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!"><b>Dirección:</b> Cra 72B #93 11</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2022 <b>Copyright</b>  
+      <a class="grey-text text-lighten-4 right" ><b>jonathanbetancurespinosa@gmail.com</b></a>
+      </div>
+    </div>
+
+
+
+     
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.parallax');
+        var instances = M.Parallax.init(elems, );
+      });
+    
+      // Or with jQuery
+    
+      $(document).ready(function(){
+        $('.parallax').parallax();
+      });
+    </script>
+
+
+<script>
+         document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems,);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.slider').slider();
+  });
+  
+</script>
+  </body>
+</html>
