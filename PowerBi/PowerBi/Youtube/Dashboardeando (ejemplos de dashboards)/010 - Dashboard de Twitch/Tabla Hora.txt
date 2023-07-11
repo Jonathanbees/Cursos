@@ -1,0 +1,12 @@
+Horario = 
+ADDCOLUMNS(
+GENERATESERIES(0, 1439, 1),
+"Hora Serial", [Value] / 1440,
+"Hora ID", FORMAT([Value]/1440, "hhmm"),
+"Hora Completo", FORMAT([Value]/1440, "hh:mm AM/PM"),
+"Hora 24h", FORMAT([Value]/1440, "hh:mm"),
+"Hora Tiempo", FORMAT([Value]/1440, "hh:mm"), //Cambiar el formato a tiempo
+"Hora hhAM/PM", FORMAT([Value]/1440, "hh AM/PM"),
+"Hora hh24", FORMAT([Value]/1440, "hh"),
+"AM/PM", FORMAT([Value]/1440, "AM/PM")
+)

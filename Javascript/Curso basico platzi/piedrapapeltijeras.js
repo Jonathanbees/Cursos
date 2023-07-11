@@ -1,0 +1,16 @@
+function respuesta(min, max) {
+    return Math.floor(Math.random()*(max-min+1)+min)
+}
+let jugador = 0;
+jugador = prompt("1 para piedra, 2 para papel, 3 para tijera");
+let pc = respuesta(1,3);
+if(jugador == pc){
+    alert("pc eligió " + pc);
+    alert("empate");
+} else if ((jugador == 1 && pc == 3) || (jugador == 2 && pc == 1) || (jugador == 3 && pc == 2)){
+    alert("pc eligió " + pc);
+    alert("ganaste");
+} else {
+    alert("pc eligió " + pc);
+    alert("perdiste")
+}

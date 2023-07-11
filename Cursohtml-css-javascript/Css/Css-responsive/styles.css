@@ -1,0 +1,21 @@
+section article {
+    color: green;
+}
+p :first-of-type{
+    color: red;
+}
+p {
+    color: blue;
+}
+.div {
+    border: 3px solid black;
+    width: 100px;
+    height: 100px;
+    margin: 10px 50px 100px 200px;
+    display:block;
+    background: linear-gradient(#e66465, #9198e5);
+    padding: 100px;
+}
+h1 {
+    display: inline-block;
+}
