@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Product preview card component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+
+    body{
+      background-image: url("./images/fondo.png");
+      width: 99%;
+      height: 80%;
+    }
+    .container{
+      display: flex;
+      background-color: rgb(247, 232, 242);
+      margin: auto;
+      margin-top: 2%;
+      height: 700px;
+      width: 1200px;
+      border-radius: 5%;
+      justify-content: center;
+      justify-items: center;
+      
+    }
+    .content{
+      display: flex;
+      margin: auto;
+      background-color: aliceblue;
+      height: auto;
+      width: 50%;
+      border-radius: 20px;
+      gap: 20px;
+      
+    }
+    .image{
+      margin: 0;
+      width: 300px;
+      height: 400px;
+      border-radius: 20px;
+    }
+    img{
+      width: inherit;
+      height: inherit;
+      border-radius: 15px;
+    }
+    .texts{
+      text-align: justify;
+      padding: 20px;
+      
+
+    }
+    .prices{
+      font-size: xx-large;
+      color: rgb(46, 236, 78);
+      display: flex;
+      justify-content: space-between;
+      width: 10%;
+      margin: 0;
+    }
+    .discount{
+      float:right;
+      width: 50px;
+      display: flex;
+      color: darkgray;
+      text-decoration: line-through;
+      margin: 0.5rem 2rem 1rem;
+      font-size:large;
+    }
+    
+    
+    .button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    display: flex;
+    width: 100%;
+    background-color: #4CAF50;
+    color: black;
+    border-radius: 5px;
+    gap: 20px;
+    text-align: center;
+    height: 40px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+
+    }
+    .button img{
+      width: 20px;
+      height: 20px;
+    }
+    .button p{
+      color: white;
+    }
+    .button:hover{
+      background-color:#2b5b2d;
+    }
+
+    @media (max-width: 700px){
+      .container{
+        display:flex;
+        border-radius: 5%;
+        width: 20rem;
+        height: 37rem;
+        padding: 0;
+      }
+      .content{
+        display: block;
+        width: 100%;
+        border-radius: 5%;
+        margin-top: 0;
+        padding: 0;
+      }
+      .image{
+        width: 100%;
+        padding: 0;
+        border-radius: 5%;
+        height: 15rem;
+        margin: 0;
+      }
+      img{
+        width: inherit;
+        height: inherit;
+        border-radius: 15px;
+      }
+      .texts{
+      text-align: justify;
+      padding: 1rem;
+      }
+    }
+    
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="image">
+        <img src="./images/image-product-desktop.jpg">
+      </div>
+      <div class="texts">
+        <p style="color: rgb(173, 154, 154); font-style: italic; ">Perfume</p>
+        <h2>Gabrielle Essence Eau De Parfum</h2>
+          <p style="color: rgb(173, 154, 154); font-style: italic; ">A floral, solar and voluptuous interpretation composed by Olivier Polge, 
+          Perfumer-Creator for the House of CHANEL.</p>
+          <p class="discount">
+            $169.99
+          </p>
+          <p class="prices">
+            $149.99
+          </p>
+          
+          <div class="button">
+            <img src="./images/icon-cart.svg" alt="">
+            <p><b>Add to cart</b></p>
+          </div>
+      </div>
+      
+
+    </div>
+  </div>
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Jonathan Betancur</a>.
+  </div>
+</body>
+</html>

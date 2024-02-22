@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    body{
+      width: 99%;
+      height: 100%;
+      margin: auto;
+      background-color: black;
+      color: white;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      
+    }
+
+    .container{
+      background:linear-gradient(rgb(31, 29, 29), rgb(38, 38, 42));
+      color: aliceblue;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+      display: block;
+      margin: 0 auto;
+      margin-top: 12%;
+      width: 22%;
+      border-radius: 5%;
+      padding: 2rem;
+    }
+    .container p{
+      font-size: 0.9rem;
+    }
+    .icon{
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background:linear-gradient(rgb(59, 55, 55), rgb(48, 48, 54));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+    }
+    .icon img {
+      align-items: center;
+      align-content: center;
+      text-align: center;
+      justify-content: center;
+      width: 15px;
+      height: 15px;
+    }
+    .container p{
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+    /*
+    .rating{
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background:linear-gradient(rgb(59, 55, 55), rgb(48, 48, 54));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    */
+    .rating{
+      display: flex;
+      gap: 20px;
+      width: 100%;
+    }
+    .inactive{
+      display: none;
+    }
+    .button{
+      align-items: center;
+      align-content: center;
+      cursor: pointer;
+      border-radius: 2rem;
+      width: 100%;
+      height: 2.3rem;
+      justify-content: center;
+      background-color: #de8c07; /* Green */
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 0.1rem;
+      display: block;
+      margin-top: 10px;
+    }
+    .button p{
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+      font-size: 1.2rem;
+      width: 100%;
+      height: 100%;
+      margin-top: 10px;
+    }
+    .button:hover{
+      background-color: white;
+      transition-duration: 500ms;
+    }
+    .button p:hover{
+      color: #de8c07;
+      transition-duration: 500ms;
+    }
+    .numbers{
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      background:linear-gradient(rgb(59, 55, 55), rgb(48, 48, 54));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+      padding: 0;
+      margin-bottom: 20px;
+      cursor:pointer;
+    }
+    .custom-button{
+      background-color: #2980b9;
+    }
+    .rating label{
+      text-decoration: none;
+      background-color:rgb(210, 40, 40);
+      border-radius: 10px;
+      width: 50px;
+      height: 50px;
+      align-items: center;
+      align-content: center;
+    }
+    .rating input{
+      appearance: none;
+    }
+    .rating span{
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">
+      <img src="./images/icon-star.svg" alt="">
+    </div>
+    <h2><b>How did we do?</b></h2>
+    <p>Please let us know how we did with your support request. All feedback is appreciated 
+      to help us improve our offering!</p>
+    <form>
+      <div class="rating">
+        <label for=""> <input type="radio" value="1">
+          <span>1</span>
+        </label>
+        <label for=""> <input type="radio" value="2">
+          <span>2</span>
+        </label>
+        <label for=""> <input type="radio" value="3">
+          <span>3</span>
+        </label>
+        <label for=""> <input type="radio" value="4">
+          <span>4</span>
+        </label>
+        <label for=""> <input type="radio" value="5">
+          <span>5</span>
+        </label>
+      </div>
+      <input type="submit" class="button">
+    </form>
+    
+    
+    <div class="thanks inactive">
+      <!-- Thank you state start -->
+
+      You selected <!-- Add rating here --> out of 5
+
+      Thank you!
+
+      We appreciate you taking the time to give a rating. If you ever need more support, 
+      don’t hesitate to get in touch!
+
+      <!-- Thank you state end -->
+    </div>
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+  <script>
+    /*NOTES
+    <div class="numbers">
+        <p>1</p>
+      </div>
+      <div class="numbers">
+        <p>2</p>
+      </div>
+      <div class="numbers">
+        <p>3</p>
+      </div>
+      The following steps is just to put the 5 space ratings, only to practice a little more of js, thx :3
+    */
+
+      /*
+    let container = document.querySelector(".rating");
+    const ratings = []
+    ratings.push("1", "2", "3", "4", "5");
+    let numbers;
+    function crearRatings(ratings){
+      for (rating of ratings){
+        numbers = document.createElement('div')
+        numbers.classList.add('numbers')
+        numbers.classList.add('custom-button')
+
+        const paragraph = document.createElement('p')
+        paragraph.innerText = rating;
+        numbers.appendChild(paragraph)
+        container.appendChild(numbers)
+      }
+      numbers.addEventListener("click", toggleclick)
+      
+    }
+    crearRatings(ratings)
+    */
+    function toggleclick(e){
+      e.classList.toggle('custom-button');
+    }
+    toggleclick(numbers)
+
+    //click = document.querySelector(".")
+
+    //poner FOR que recorra y cree los 5 elementos de la calificación
+  </script>
+</body>
+</html>

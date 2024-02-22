@@ -21,7 +21,7 @@ DATABASES = {
 }
 
 Con el comando: "python manage.py inspectdb" se podrá ver la base de datos que está cargando de mysql
-y con el comando: "python manage.py inspectdb > (ruta de models.py)" se cargarán todas las clases al archivo models.py
+y con el comando: "python manage.py migrate > (ruta de models.py)" se cargarán todas las clases al archivo models.py
 o simplemente con la primera instrucción inspectdb se podrá copiar y pegar en el mismo archivo las clases que saca
 
 Siguiente paso:
